@@ -1,0 +1,233 @@
+.menuLables{
+    display: flex;
+    z-index: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: #5676A5;
+    box-shadow: 0px 0px 15px #00284b;
+    right: 8px;
+    max-width: calc(100vw - 16px);
+    top: -100%;
+    transition: all .5s;
+    border-bottom-left-radius: 16px;
+}
+
+.lables{
+    position: relative;
+    font-size: 20px;
+    padding: 18px 22px;
+    color: #EDF2FB;
+    transition: all .3s;
+}
+
+a:hover, .lables:hover{
+    cursor: pointer;
+    text-shadow: 1px 1px #ABC4FF;
+    transition: all 0.3s;
+}
+
+a::after, .lables::after{
+    content: "";
+    position: absolute;
+    width: 0%;
+    bottom: 0;
+    left: 10%;
+}
+
+a:hover::after, .lables:hover::after{
+    content: "";
+    width: 80%;
+    height: 2px;
+    background-color: #EDF2FB;
+    position: absolute;
+    transition: all 0.3s;
+}
+
+.menuOpenAnimation{ transform: rotate(90deg); }
+
+.menuOpen{
+    top: 140px;
+    transition: all .5s;
+}
+
+.optionButton{
+    position: fixed;
+    z-index: 3;
+    background-color: #5676A5;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    right: 16px;
+    left: auto;
+    top: 16px;
+    border-radius: 50%;
+    box-shadow: 0px 0px 2px 2px rgba(0,0,0,0.25);
+    transition: all .2s;
+}
+
+@media screen and (max-width: 1250px){
+    .optionButton{
+        width: 56px;
+        height: 56px;
+        right: 12px;
+        left: auto;
+        top: 12px;
+    }
+
+    .optionButtonIcon{
+        height: 35px;
+        width: 35px;
+    }
+}
+
+@media screen and (max-width: 1050px){
+    .optionButton{ display: flex; }
+}
+
+.subMenu{
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    background-color: #5676A5;
+    color: #EDF2FB;
+    border-radius: 16px;
+    box-shadow: 0 0 6px 6px rgba(0, 0, 0, 0.25);
+    max-width: min(640px, 88vw);
+}
+
+.optionsBg{
+    position: absolute;
+    z-index: 5;
+    background-color: rgba(0,0,0,0.6);
+    width: 100%;
+    height: 100vh;
+    display : none;
+    justify-content: center;
+    align-items: center;
+}
+
+.settingsSub,
+.keyBindingSub,
+.creditsSub{
+    display: none;
+    min-width: 300px;
+}
+
+.settingsSub {
+    display: none;
+    width: 420px;
+    max-width: 100%;
+}
+
+.settingsSub-Title,
+.keyBindingSub-Title,
+.creditsSub-Title{ text-align: center; }
+
+.option-row {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+.option-row.compact {
+    gap: 10px;
+}
+
+.option-row label {
+    font-size: 15px;
+    font-weight: 600;
+    color: #edf2fb;
+}
+
+.option-row input {
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 16px;
+    color: #00284b;
+    background: #edf2fb;
+}
+
+.grid-size-options {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    gap: 8px;
+}
+
+.grid-size-btn,
+.settings-save {
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 10px 12px;
+    font-weight: 700;
+    color: #00284b;
+    background: #d7e3fc;
+    box-shadow: 0 0 6px rgba(0,0,0,0.18);
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.grid-size-btn.active,
+.settings-save {
+    background: #b6ccfe;
+}
+
+.grid-size-btn:hover,
+.settings-save:hover { transform: translateY(-1px); }
+
+.settings-save {
+    width: 100%;
+    margin-top: 6px;
+}
+
+.option-row.actions {
+    margin-bottom: 0;
+}
+
+kbd{
+    font-size: 20px;
+    background-color: #00284b;
+    padding: 5px;
+    border-radius: 8px;
+}
+
+kbd:hover{ cursor: pointer; }
+
+.keys{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    margin-bottom: 12px;
+}
+
+.keys p{ padding: 6px; }
+
+.creditsSub > p{
+    text-align: center;
+    font-size: 20px;
+    padding: 10px;
+}
+
+.github{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+}
+
+a{
+    font-size: 20px;
+    text-decoration: none;
+    color: #EDF2FB;
+}
