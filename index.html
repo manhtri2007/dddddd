@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/svg+xml" href="assets/images/favIcon.svg">
+        <link rel="stylesheet" href="css/generalStyle.css">
+        <link rel="stylesheet" href="css/gameStyle.css">
+        <link rel="stylesheet" href="css/leaderboardStyle.css">
+        <link rel="stylesheet" href="css/optionStyle.css">
+        <title>Don't Tap White Tiles</title>
+    </head>
+    <body>
+        <div class="app-shell">
+            <header class="status-header">
+                <div class="stat-box">
+                    <span>HI-SCORE</span>
+                    <strong id="hi-score">0</strong>
+                </div>
+                <div class="stat-box active-score">
+                    <span>SCORE</span>
+                    <strong id="current-score">0</strong>
+                </div>
+                <div class="stat-box time-score">
+                    <span>TIME</span>
+                    <strong id="time-left">30</strong>
+                </div>
+            </header>
+
+            <main class="game-area">
+                <div id="gameContainer" class="size-4" aria-label="Game board"></div>
+                <div class="overlay-text" id="gameStatus" aria-live="polite"></div>
+            </main>
+
+            <nav class="bottom-nav">
+                <button type="button" class="nav-btn is-home" aria-label="Home">⌂</button>
+                <button type="button" class="nav-btn is-history" aria-label="History">📜</button>
+                <button type="button" class="nav-btn is-settings" aria-label="Settings">⚙</button>
+            </nav>
+        </div>
+
+        <div class="optionButton" onclick="options('open')" aria-label="Open settings">
+            <img src="assets/icons/option.svg" alt="optionButton" class="optionButtonIcon">
+        </div>
+
+        <div class="menuLables">
+            <p class="lables" onclick="openSubmenu(this.id)" id="settings">Settings</p>
+            <p class="lables" onclick="openSubmenu(this.id)" id="keyBindings">Key bindings</p>
+            <p class="lables" onclick="openSubmenu(this.id)" id="reportBug">Report bug</p>
+            <p class="lables" onclick="openSubmenu(this.id)" id="credits">Credits</p>
+            <p class="lables" id="version">V 3.1.2</p>
+        </div>
+
+        <div class="externalContainer">
+            <div class="optionsBg" onclick="closeMenu()">
+                <div class="subMenu" onclick="event.stopPropagation()">
+                    <div class="settingsSub">
+                        <h1 class="settingsSub-Title">Game settings</h1>
+                        <div class="option-row">
+                            <label for="round-duration-input">Round time (seconds)</label>
+                            <input id="round-duration-input" type="number" min="10" max="180" step="1" value="30">
+                        </div>
+                        <div class="option-row compact">
+                            <label>Grid size</label>
+                            <div class="grid-size-options">
+                                <button type="button" class="grid-size-btn active" data-size="4">4x4</button>
+                                <button type="button" class="grid-size-btn" data-size="5">5x5</button>
+                                <button type="button" class="grid-size-btn" data-size="6">6x6</button>
+                                <button type="button" class="grid-size-btn" data-size="7">7x7</button>
+                                <button type="button" class="grid-size-btn" data-size="8">8x8</button>
+                            </div>
+                        </div>
+                        <div class="option-row">
+                            <label for="black-tile-count-input">Black tiles active</label>
+                            <input id="black-tile-count-input" type="number" min="1" max="12" step="1" value="2">
+                        </div>
+                        <div class="option-row actions">
+                            <button type="button" class="settings-save" id="settings-save-button">Apply</button>
+                        </div>
+                    </div>
+
+                    <div class="keyBindingSub">
+                        <h1 class="keyBindingSub-Title">Key bindings</h1>
+                        <div class="keys">
+                            <p>Key 1</p>
+                            <kbd class="key1" onclick="changeKey($(this))"></kbd>
+                        </div>
+                        <div class="keys">
+                            <p>Key 2</p>
+                            <kbd class="key2" onclick="changeKey($(this))"></kbd>
+                        </div>
+                        <div class="keys">
+                            <p>Option Key</p>
+                            <kbd class="openMenu" onclick="changeKey($(this))"></kbd>
+                        </div>
+                    </div>
+                    <div class="creditsSub">
+                        <h1 class="creditsSub-Title">Credits</h1>
+                        <p>Made by:</p>
+                        <p class="me">Luca Parmeggiani</p>
+                        <p>with ❤ and jQuery</p>
+                        <hr>
+                        <div class="github">
+                            <a href="https://github.com/LucaParmeggiani" class="github">GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="leaderboard">
+                <div class="historyHeader">
+                    <div class="historyMeta">Lượt chơi: <span id="history-count">0</span>/<span id="history-total">0</span></div>
+                </div>
+                <div class="leaderboardGrid">
+                    <div class="headerGrid">
+                        <div class="headerName">#</div>
+                        <div class="headerTime">Score</div>
+                        <div class="headerDate">Date</div>
+                    </div>
+                    <div class="bodyGrid"></div>
+                </div>
+            </section>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="js/gameScript.js"></script>
+        <script src="js/optionScript.js"></script>
+        <script src="js/leaderboardScript.js"></script>
+        <script src="js/generalScript.js"></script>
+    </body>
+</html>
