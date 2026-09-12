@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* { box-sizing: border-box; user-select: none; }
+
+html, body{
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    background-color: #EDF2FB;
+    color: #00284B;
+    overflow: hidden;
+    touch-action: none;
+}
+
+select{ font-family: 'Poppins', sans-serif; }
+
+.externalContainer{
+    width: 100%;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    background-color: #EDF2FB;
+}
+
+@media screen and (max-width: 1050px){
+    header{ font-size: 25px !important; letter-spacing: 15px !important; }
+}
+
+::-webkit-scrollbar { width: 12px; height: 12px; }
+::-webkit-scrollbar-button { width: 0; height: 0; }
+::-webkit-scrollbar-thumb { background: #ABC4FF; }
+::-webkit-scrollbar-thumb:hover { background: #B6CCFE; }
+::-webkit-scrollbar-thumb:active { background: #5676A5; }
+::-webkit-scrollbar-track { background: #CCDBFD; }
+
+header{
+    position: fixed;
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    background-color: #E2EAFC;
+    color: #00284B;
+    text-shadow: 1px 1px #ABC4FF;
+    z-index: 2;
+    box-shadow: 0px 0px 15px #00284B;
+    letter-spacing: 25px;
+    transition: .2s;
+}
+
+header span{ color: white; }
+
+.view-nav{
+    display: flex;
+    position: fixed;
+    z-index: 100;
+    right: 0;
+    top: 92px;
+    flex-direction: column;
+    gap: 10px;
+    width: 92px;
+    max-width: calc(100vw - 16px);
+    padding: 8px;
+}
+
+.view-nav-button{
+    width: 76px;
+    min-height: 48px;
+    border-radius: 10px;
+    border: 0;
+    padding: 10px 8px;
+    color: #EDF2FB;
+    font: inherit;
+    font-size: 14px;
+    font-weight: bold;
+    white-space: nowrap;
+    background-color: #00284B;
+    box-shadow: 0px 0px 5px 0px rgba(0,46,86,1);
+    cursor: pointer;
+}
+
+.view-nav-button:hover, .view-nav-button.is-active{ background-color: #5676A5; }
+
+.view-nav-button:focus-visible{
+    outline: 3px solid #ABC4FF;
+    outline-offset: 2px;
+}
+
+@media screen and (max-width: 650px){
+    .view-nav{
+        top: auto;
+        bottom: 0;
+        width: 100%;
+        max-width: none;
+        flex-direction: row;
+        justify-content: center;
+        padding: 8px 16px 12px;
+    }
+
+    .view-nav-button{
+        width: min(42vw, 180px);
+        min-height: 52px;
+    }
+}
